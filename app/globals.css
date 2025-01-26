@@ -2,20 +2,146 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply box-border;
+  }
+  html,
+  body {
+    @apply antialiased h-full;
+  }
+  body {
+    @apply bg-lightgray-50 text-regular-b3 text-title;
+  }
+  body.onboarding .sidenav {
+    @apply hidden;
+  }
+  body.onboarding .dashboard {
+    @apply top-4 sm:top-0;
+  }
+  h1 {
+    @apply text-bold-h5 text-title;
+  }
+  h2 {
+    @apply text-bold-b1 text-title;
+  }
+  h3 {
+    @apply text-bold-b3 text-title;
+  }
+  .link {
+    @apply text-blue underline cursor-pointer hover:text-blue-120 hover:no-underline;
+  }
+  .nested-link {
+    a {
+      @apply underline cursor-pointer hover:no-underline text-blue hover:text-blue-120;
+    }
+  }
+  .link-no-underline {
+    a {
+      @apply text-blue hover:text-blue-120 cursor-pointer;
+    }
+  }
+  .dot-1 {
+    animation-delay: 0.1s !important;
+  }
+  .dot-2 {
+    animation-delay: 0.3s !important;
+  }
+  .dot-3 {
+    animation-delay: 0.5s !important;
+  }
+  .break-anywhere {
+    overflow-wrap: anywhere;
+  }
+  .mweb {
+    @apply block sm:hidden;
+  }
+  .desktop {
+    @apply hidden sm:block;
+  }
+  .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #g_a11y_announcement {
+    display: none;
+  }
+  .credit-score {
+    @apply text-title;
+    font-size: 43.361px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 80%; /* 60.705px */
   }
 }
+input::placeholder {
+  @apply text-regular-b3;
+}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@font-face {
+  font-family: "Twemoji Country Flags";
+  unicode-range: U+1F1E6-1F1FF, U+1F3F4, U+E0062-E0063, U+E0065, U+E0067,
+    U+E006C, U+E006E, U+E0073-E0074, U+E0077, U+E007F;
+  src: url("https://cdn.reasonlabs.com/fonts/twemoji_country_flags.woff2")
+    format("woff2");
+}
+input,
+textarea,
+select {
+  font-size: 16px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="date"].hidden-text::-webkit-datetime-edit {
+  display: none;
+}
+
+.markdown {
+  a {
+    @apply text-blue underline cursor-pointer hover:text-blue-120 hover:no-underline;
+  }
+  p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+  }
+  ol {
+    display: block;
+    list-style-type: decimal;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 1em;
+    unicode-bidi: isolate;
+    li {
+      margin-bottom: 16px;
+    }
+  }
+  ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 1em;
+    unicode-bidi: isolate;
+    li {
+      margin-bottom: 16px;
+    }
+  }
 }
