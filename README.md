@@ -3,7 +3,7 @@
 First, clone the code:
 
 ```
-git@github.com:ws7one/list-sample.git
+git clone git@github.com:ws7one/list-sample.git
 ```
 
 Then, install all dependences
